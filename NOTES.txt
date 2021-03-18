@@ -1,1 +1,27 @@
 Project notes initialized
+
+1. Install vue cli globally
+npm install --global @vue/cli
+
+2. crate vue project
+vue create moz-todo-vue
+
+3. vue component
+example.vue:-
+    1.<template>
+        it is the dispaly logic of the component
+        contains html and vue specific syntax
+    2.<script>
+        non dispaly logic
+        returns defined components, methods, properties and state etc
+        while rendering vue will convert this export and template to a .vue component
+    3.<style>
+        write css style for the component (scoped)
+
+we can import one component to another component
+
+4. Run vue server 
+    npm run serve
+    http://localhost:8080/
+
+5.     
