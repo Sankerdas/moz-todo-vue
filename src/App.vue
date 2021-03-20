@@ -4,7 +4,7 @@
     <ul>
       <li>
         <ToDOItem label="hello" :done="true" />
-        <ToDOItem label="World" :done="true" />
+        <ToDOItem label="World" :done="false" />
       </li>
     </ul>
   </div>
