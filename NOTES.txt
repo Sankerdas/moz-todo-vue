@@ -42,6 +42,16 @@ export default {
     }
 }
 
+data():-
+data() object used to manage local state of a component
 
+syntax:
+data() : {
+    return {
+        key: value
+    }
+}
 
+access prop value inside a data() by using --> this.exampleProp
+bind script expressions with html syntax --> <input :checked="isDone" />
 
