@@ -1,13 +1,22 @@
 <template>
   <div id="app">
     <h1>TODO LIST</h1>
+    <ul>
+      <li>
+        <ToDOItem label="hello" />
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
+import ToDOItem from './components/ToDoItem';
 
 export default {
   name: 'App',
+  components: {
+    ToDOItem
+  }
 }
 </script>
 

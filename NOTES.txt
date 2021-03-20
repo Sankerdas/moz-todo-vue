@@ -24,4 +24,24 @@ we can import one component to another component
     npm run serve
     http://localhost:8080/
 
-5.     
+
+II. Creating first vue component
+
+Objective:-
+1.calling component to another component
+2.passing data to component via properties
+3.saving states
+
+state:-
+state of a component defined by the prop passed to it
+value of the props gives the inital state for the component that affects their dispaly
+define prop inside export default {}
+export default {
+    prop: {
+        propName: {required : true, default : "default value", type: String}
+    }
+}
+
+
+
+
