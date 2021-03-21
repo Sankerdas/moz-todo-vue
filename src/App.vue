@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <h1>TODO LIST</h1>
-    <ToDoForm />
+    <ToDoForm @todo-added="addToDo" />
     <ul>
       <li v-for="todo in ToDoItems" :key="todo.id" >
-        <ToDoItem :label="todo.label" :done="true" :id="todo.id" />
+        <ToDoItem :label="todo.label" :done="todo.done" :id="todo.id" />
       </li>
     </ul>
   </div>
@@ -29,6 +29,14 @@ export default {
         {id: uniqueId("todo-") ,  label: "Learned about props and state", done: true},
         {id: uniqueId("todo-") ,  label: "Vue life cycle", done: false}
       ]
+    }
+  },
+  methods: {
+    addToDo(todoLabel) {
+      console.log("add", todoLabel);
+      this.ToDoItems.push(
+        {id: uniqueId('todo-'), label: todoLabel, done: false }
+      );
     }
   }
 }

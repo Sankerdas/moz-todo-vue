@@ -92,7 +92,26 @@ methods can be called using various event handler
 v-on:event="method-name"  ===> @event="method-name"
 
 event modifiers can be used to prevent browsers default event behaviours such as e.preventDefault() to prevent submission ==> @event.modifier
+example:- @submit.prevent="onSubmit"
 
 ==>Binding data to inputs with v-model
 v-model="label"
 
+==> Changing v-model behavior with modifiers
+just like event modifiers we can modify v-model
+example:- v-model.trim.lazy="label"
+
+==> Passing data to parents with custom events
+a child component can emit an event which can be listened to via v-on
+
+example:-
+this.$emit('todo-added', this.label);
+receive this above emited event from parent component
+<ToDoForm @todo-added="addToDo" />
+todo-added event will triger addToDo(todoLabel) method inside parent component
+
+==> Adding the new todo into our data
+emited parameter pushed into the array
+
+==> Using v-model to update an input value
+this.label = "";

@@ -3,7 +3,8 @@
       <label for="new-todo-input" >
           What you want to ToDo?
       </label>
-      <input type="text" id="new-todo-input" name="new-todo" autocomplete="off" v-model="label">
+      <input type="text" id="new-todo-input" name="new-todo" autocomplete="off"
+        v-model.trim.lazy="label" >
       <button type="submit" >
           Add
       </button>
@@ -19,7 +20,11 @@ export default {
     },
     methods: {
         onSubmit() {
-            console.log("input value:- " + this.label);
+            if(this.label === "") {
+                return;
+            }
+            this.$emit('todo-added', this.label);
+            this.label = "";
         }
     }
 }
