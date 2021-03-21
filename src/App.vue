@@ -3,7 +3,7 @@
     <h1>TODO LIST</h1>
     <ul>
       <li v-for="todo in ToDoItems" :key="todo.id" >
-        <ToDOItem :label="todo.label" :done="true" />
+        <ToDOItem :label="todo.label" :done="true" :id="todo.id" />
       </li>
     </ul>
   </div>
