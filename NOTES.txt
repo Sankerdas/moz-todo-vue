@@ -58,3 +58,14 @@ bind script expressions with html syntax --> <input :checked="isDone" />
 ===> install lodash for unique id
 npm install --save lodash.uniqueid
 uniqueid() method generated unique id
+
+
+III. Rendering a list of Vue components.
+adding a set of todo item data to our App.vue component,
+which we'll then loop through and display inside ToDoItem components using the v-for directive.
+
+v-for --> it is similar to for in loop
+it can be applied to elements you want to repeat
+:key attribute is necesseray with v-for, because while looping vue will not recreate elements, its just re-using elements appropriately so that :key is needed
+
+
