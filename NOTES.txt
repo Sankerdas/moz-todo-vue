@@ -54,6 +54,7 @@ data() : {
 
 access prop value inside a data() by using --> this.exampleProp
 bind script expressions with html syntax --> <input :checked="isDone" />
+v-bind:checked="isDone" ====> :checked = "isDone"
 
 ===> install lodash for unique id
 npm install --save lodash.uniqueid
@@ -83,3 +84,15 @@ Changing v-model behavior with modifiers
 Passing data to parents with custom events
 Adding the new todo into our data
 Using v-model to update an input value
+
+==>Creating a method & binding it to an event with v-on
+every methods should be defined inside methods() object
+
+methods can be called using various event handler 
+v-on:event="method-name"  ===> @event="method-name"
+
+event modifiers can be used to prevent browsers default event behaviours such as e.preventDefault() to prevent submission ==> @event.modifier
+
+==>Binding data to inputs with v-model
+v-model="label"
+
