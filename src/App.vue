@@ -1,22 +1,26 @@
 <template>
   <div id="app">
     <h1>TODO LIST</h1>
+    <ToDoForm />
     <ul>
       <li v-for="todo in ToDoItems" :key="todo.id" >
-        <ToDOItem :label="todo.label" :done="true" :id="todo.id" />
+        <ToDoItem :label="todo.label" :done="true" :id="todo.id" />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import ToDOItem from './components/ToDoItem';
+import ToDoItem from './components/ToDoItem';
+import ToDoForm from './components/ToDoForm';
+
 import uniqueId from 'lodash.uniqueid';
 
 export default {
   name: 'App',
   components: {
-    ToDOItem
+    ToDoItem,
+    ToDoForm
   },
   data() {
     return {

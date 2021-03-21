@@ -68,4 +68,18 @@ v-for --> it is similar to for in loop
 it can be applied to elements you want to repeat
 :key attribute is necesseray with v-for, because while looping vue will not recreate elements, its just re-using elements appropriately so that :key is needed
 
+IV. Adding a new todo form: Vue events, methods, and models
 
+--Objective:-
+To learn about handling forms in Vue, and by association, events, models, and methods
+
+What we really need next is the ability to allow our users to enter their own todo items into the app, and for that we'll need a text <input>, an event to fire when the data is submitted, a method to fire upon submission to add the data and rerender the list, and a model to control the data. This is what we'll cover in this article
+
+table of contents:-
+Creating a New To-Do form
+Creating a method & binding it to an event with v-on
+Binding data to inputs with v-model
+Changing v-model behavior with modifiers
+Passing data to parents with custom events
+Adding the new todo into our data
+Using v-model to update an input value
