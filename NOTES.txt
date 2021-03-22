@@ -115,3 +115,30 @@ emited parameter pushed into the array
 
 ==> Using v-model to update an input value
 this.label = "";
+
+==> Styling Vue components with CSS
+-->table of contents
+Styling Vue components with CSS
+Styling with external CSS files
+Adding global styles to Single File Components
+Adding scoped styles
+
+-->Objective
+To learn about styling Vue components
+
+::Styling with external CSS files
+place exteranl css in src/assets folder, this folder is processed by webpack 
+src/assets/reset.css
+
+import above css into main.js
+src/main.js
+import './assets/reset.css';
+
+::Adding global styles to Single File Components
+add styles inside app.vue <style> tag
+
+::Adding scoped styles
+add styles inside components style tag with scoped attribute
+<style scoped >
+</style>
+scoped styles will affect only inside the component
