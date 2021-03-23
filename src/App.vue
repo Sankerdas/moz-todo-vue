@@ -2,9 +2,10 @@
   <div id="app">
     <h1>TODO LIST</h1>
     <ToDoForm @todo-added="addToDo" />
+    <h2 id="list-summary" > {{ listSummary }}</h2>
     <ul aria-labelledby="list-summary" class="stack-large">
       <li v-for="todo in ToDoItems" :key="todo.id" >
-        <ToDoItem :label="todo.label" :done="todo.done" :id="todo.id" />
+        <ToDoItem :label="todo.label" :done="todo.done" :id="todo.id" @checkbox-changed="updateDoneStatus(todo.id)" />
       </li>
     </ul>
   </div>
@@ -37,6 +38,17 @@ export default {
       this.ToDoItems.push(
         {id: uniqueId('todo-'), label: todoLabel, done: false }
       );
+    },
+    updateDoneStatus(id) {
+      const itemToUpdate = this.ToDoItems.find(item => item.id == id); // returns perticular object to update
+      itemToUpdate.done = !itemToUpdate.done;
+    }
+    
+  },
+  computed: {
+    listSummary(){
+      const numberFinishedItem = this.ToDoItems.filter(item => item.done).length;
+      return `${numberFinishedItem} finished out of ${this.ToDoItems.length}`;
     }
   }
 }

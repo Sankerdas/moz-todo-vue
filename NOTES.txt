@@ -142,3 +142,23 @@ add styles inside components style tag with scoped attribute
 <style scoped >
 </style>
 scoped styles will affect only inside the component
+
+
+==>Using Vue computed properties
+Objective:- to learn how to use computed property
+
+-->table of contents
+Using computed properties
+Adding a summary counter
+Tracking changes to "done"
+
+These work similarly to methods, but only re-run when one of their dependencies changes
+
+::Adding a summary counter
+
+::Tracking changes to "done"
+ @change="$emit('checkbox-changed')"
+ above code emit evnet inline
+
+we have calculated inside compute() property number of completed task
+check box will emit an event while clicking on finished checkbox, this event will be listend at parent component then array object will be update to finished
