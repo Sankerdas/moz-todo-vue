@@ -1,24 +1,64 @@
 <template>
-<div class="custom-checkbox" >
+<div>
+<div class="stack-small" v-if="!isEditing" >
+  <div class="custom-checkbox">
     <input type="checkbox" class="checkbox" :id="id" :checked="isDone" @change="$emit('checkbox-changed')" >
     <label class="checkbox-label" :for="id"> {{label}} </label>
+  </div>
+  <div class="btn-group">
+      <button type="button" class="btn"  @click="toggleToItemEditForm">
+        Edit <span class="visually-hidden">{{label}}</span>
+      </button>
+      <button type="button" class="btn btn__danger" @click="deleteToDo">
+        Delete <span class="visually-hidden">{{label}}</span>
+      </button>
+  </div>
 </div>
-
+<ToDoItemEditForm v-else :id="id" :label="label"
+@edit-cancelled="edtiCancelled"
+@item-edited="itemEdited" />
+</div>
 </template>
 
 <script>
+import ToDoItemEditForm from './ToDoItemEditForm';
+
     export default {
-        props: {
-            id: {required: true, type: String},
-            label: {required: true, type: String},
-            done: {default: false, type: Boolean}
+      components: {
+        ToDoItemEditForm
+      },
+      props: {
+          id: {required: true, type: String},
+          label: {required: true, type: String},
+          done: {default: false, type: Boolean}
+      },
+      data() {
+          return {
+              // isDone: this.done, ** BUG FIX:- moved to compute
+              isEditing: false
+          }
+      },
+      methods: {
+        toggleToItemEditForm(){
+          this.isEditing = !this.isEditing;
         },
-        data() {
-            return {
-                isDone: this.done,
-            }
+        deleteToDo() {
+          this.$emit('item-deleted')
+        },
+        edtiCancelled(){
+          this.isEditing = false;
+        },
+        itemEdited(newLabel) {
+          this.$emit('item-edited', newLabel);
+          this.isEditing = false;
         }
-    };
+      },
+      computed: {
+        isDone() {
+          return this.done; // ***BUG FIX:- it will preserve checkbox state      
+        }
+      }
+    } 
 </script>
 
 <style scoped>

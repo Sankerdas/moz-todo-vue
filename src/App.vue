@@ -5,7 +5,10 @@
     <h2 id="list-summary" > {{ listSummary }}</h2>
     <ul aria-labelledby="list-summary" class="stack-large">
       <li v-for="todo in ToDoItems" :key="todo.id" >
-        <ToDoItem :label="todo.label" :done="todo.done" :id="todo.id" @checkbox-changed="updateDoneStatus(todo.id)" />
+        <ToDoItem :label="todo.label" :done="todo.done" :id="todo.id"
+        @checkbox-changed="updateDoneStatus(todo.id)"
+        @item-edited="editToDo(todo.id, $event)"
+        @item-deleted="deleteToDo(todo.id)" />
       </li>
     </ul>
   </div>
@@ -42,6 +45,15 @@ export default {
     updateDoneStatus(id) {
       const itemToUpdate = this.ToDoItems.find(item => item.id == id); // returns perticular object to update
       itemToUpdate.done = !itemToUpdate.done;
+    },
+    editToDo(id, newLabel) {
+      let toDoToEdit = this.ToDoItems.find(item => item.id === id);
+      toDoToEdit.label = newLabel;
+    },
+    deleteToDo(id) {
+      console.log(id);
+      let indexToDelete = this.ToDoItems.findIndex(item => item.id === id);
+      this.ToDoItems.splice(indexToDelete, 1);
     }
     
   },

@@ -162,3 +162,39 @@ These work similarly to methods, but only re-run when one of their dependencies 
 
 we have calculated inside compute() property number of completed task
 check box will emit an event while clicking on finished checkbox, this event will be listend at parent component then array object will be update to finished
+
+
+==> Vue conditional rendering: editing existing todos
+v-if and v-else 
+
+Objective:-
+To learn how to do conditional rendering in Vue.
+
+-->table of contents
+Creating an editing component
+Modifying our ToDoItem component
+Conditionally displaying components via v:if and v:else
+Getting back out of edit mode
+Updating and deleting todo items
+Fixing a small bug with isDone status
+Understanding the tangle of events
+
+
+-->Creating an editing component
+new component created
+
+-->Modifying our ToDoItem component
+edit delete buttons and ToDoItemEditForm component addedd
+
+-->Conditionally displaying components via v:if and v:else
+based on isEditing flag edit component and todo list item toggled
+
+-->Getting back out of edit mode
+edited values emited by an event and it is handled on parant component
+
+-->Updating and deleting todo items
+edited & updated values emited by an event and it is handled on parant component
+
+-->Fixing a small bug with isDone status
+isDone is handled on vue's computed: propertie
+
